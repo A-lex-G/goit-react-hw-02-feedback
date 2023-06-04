@@ -1,9 +1,6 @@
 import React from "react";
 import { Statistics } from "components/Statistics/Statistics";
 import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions";
-import { Notification } from "components/Statistics/Notification";
-import { ReactPropTypes } from "react";
-import css from './Feedback.module.css';
 
 export class CreateFeedback extends React.Component {
 state = {
@@ -25,13 +22,11 @@ state = {
     }
 
     countTotalFeedback = ({good,neutral,bad}) => {
-        let total = 0;
-        return total = good + neutral + bad;
+        return  good + neutral + bad;
     }
 
-    countPositiveFeedbackPercentage = ({ good }, total) => {
-        let positiveFeedbackPart = 0;
-        return positiveFeedbackPart = Math.round((good / this.countTotalFeedback(this.state) * 100));
+    countPositiveFeedbackPercentage = ({ good }) => {
+        return  Math.round((good / this.countTotalFeedback(this.state) * 100));
     }
 
     render() {
@@ -48,29 +43,3 @@ state = {
         )
     }
 }
-
-
-// Using Switch>======================================
-// switch (button) {
-//     case 'good':
-//         return { good: prevState.good +1 };
-//     case 'neutral':
-//         return { neutral: prevState.neutral + 1 };
-//     case 'bad':
-//         return { bad: prevState.bad +1 }
-//     default:
-//         break;
-// }==================================================
-//                     {// Using Switch======================================================================
-//                     /* <button type= 'button' onClick={() => this.handleSetValue('good')}>Good</button>
-//                     <button type= 'button' onClick={() => this.handleSetValue('neutral')}>Neutral</button>
-//                     <button type= 'button' onClick={() => this.handleSetValue('bad')}>Bad</button> */
-//                     // ===================================================================================
-//                     }
-//                 {/* <div>
-//                     <p>Good:{this.state.good}</p>
-//                     <p>Neutral:{this.state.neutral}</p>
-//                     <p>Bad:{this.state.bad}</p>
-//                     <p>Total:{this.countTotalFeedback(this.state)}</p>
-//                     <p>Positive feedback: {this.countPositiveFeedbackPercentage(this.state, this.total)}%</p>
-//                 </div> */}

@@ -1,0 +1,21 @@
+.btnSet {
+    display: flex;
+    column-gap: 10px;
+}
+
+.buttonIncr {
+    border: 1px solid antiquewhite;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
+
+.buttonIncr:hover {
+    border: 1px solid wheat;
+    background-color: blanchedalmond;
+}
+
+.buttonIncr:active {
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+}
