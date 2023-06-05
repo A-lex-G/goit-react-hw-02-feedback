@@ -1,5 +1,5 @@
 import { CreateFeedback } from "./Feedback/Feedback";
-import { Section } from "./Section";
+import { Section } from "./Section/Section";
 
 export const App = () => {
   return (

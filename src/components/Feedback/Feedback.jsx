@@ -4,24 +4,18 @@ import { FeedbackOptions } from "components/FeedbackOptions/FeedbackOptions";
 
 export class CreateFeedback extends React.Component {
 state = {
-  good: 0,
-  neutral: 0,
-  bad: 0
+    good: 0,
+    neutral: 0,
+    bad: 0
 }
 
-    handleSetValue = event => {
+    handleSetValue = type => {
         this.setState((prevState) => {
-            if (event.target.textContent === "Good") {
-                return { good: prevState.good + 1 };
-            } else if (event.target.textContent === "Neutral") {
-                return { neutral: prevState.neutral + 1 };
-            } else {
-                return { bad: prevState.bad + 1 }
-            }
+            return {[type]: prevState[type] + 1}
         })
     }
 
-    countTotalFeedback = ({good,neutral,bad}) => {
+    countTotalFeedback = ({ good, neutral, bad }) => {
         return  good + neutral + bad;
     }
 
@@ -32,7 +26,9 @@ state = {
     render() {
         return (
             <div>
-                <FeedbackOptions options={'button'} onLeaveFeedback={this.handleSetValue}/>
+                <FeedbackOptions
+                    options={['good', 'neutral', 'bad']}
+                    onLeaveFeedback={this.handleSetValue}/>
                 <Statistics
                     good={this.state.good}
                     neutral={this.state.neutral}
